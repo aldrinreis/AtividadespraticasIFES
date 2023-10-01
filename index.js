@@ -1,7 +1,9 @@
 /*
- Crie um algoritmo que receba pelo teclado o nome de um aluno e três notas. Ao final,
-deverá ser exibido o nome do aluno, sua média e o resultado (se for acima ou igual a 6, o
-aluno estará “aprovado”; se não for, estará “reprovado”).
+ Crie um algoritmo que receba pelo teclado o nome de um aluno e três notas. 
+ 
+Usando o algoritmo do exercício anterior, altere o resultado para: Média <=3, “reprovado”,
+Média < 6, “recuperação” e Média >=6, “aprovado”.
+ 
 
 */
 
@@ -17,6 +19,10 @@ var media = (nota1 + nota2 + nota3) / 3;
 if (media >= 6) {
   console.log(media, "Aprovado")
 
-} else {
+} 
+else if(media>3 && media<6) {
+  console.log(media, "Recuperação")
+}
+else {
   console.log(media, "Reprovado")
 };
