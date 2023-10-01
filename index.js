@@ -1,28 +1,38 @@
 /*
- Crie um algoritmo que receba pelo teclado o nome de um aluno e três notas. 
- 
-Usando o algoritmo do exercício anterior, altere o resultado para: Média <=3, “reprovado”,
-Média < 6, “recuperação” e Média >=6, “aprovado”.
- 
+Crie um algoritmo em que, dada a tabela a seguir, calcula e exibe na tela o valor de
+desconto a ser concedido para um determinado cliente, de acordo com o valor da compra.
+O algoritmo deverá receber pelo teclado o nome do cliente e o valor total da compra
+
+
+Valor da compra                      |   % de desconto
+Abaixo de R$ 1.000,00                |        5
+Entre R$ 1.000,00 a R$ 5.000,00      |        10
+Acima de R$ 5.000,00                 |        15
 
 */
 
 const prompt = require('prompt-sync')();
 
 var nome = prompt("Digite o seu nome: ");
-var nota1 = parseFloat(prompt("Insira a nota 1: "));
-var nota2 = parseFloat(prompt("Insira a nota 2: "));
-var nota3 = parseFloat(prompt("Insira a nota 3: "));
+var vlr_compra = parseFloat(prompt("Insira o valor da compra R$: "));
 
-var media = (nota1 + nota2 + nota3) / 3;
 
-if (media >= 6) {
-  console.log(media, "Aprovado")
+if (vlr_compra < 1000){
 
-} 
-else if(media>3 && media<6) {
-  console.log(media, "Recuperação")
+  var percentual_desconto = 5;
+  var vlr_desconto = vlr_compra * 0.05; 
+  
+}else if(vlr_compra>=1000 && vlr_compra<=5000 ){
+  var percentual_desconto = 10;
+  var vlr_desconto = vlr_compra * 0.1;
+}else{
+  var percentual_desconto = 15;
+  var vlr_desconto = vlr_compra * 0.15;
 }
-else {
-  console.log(media, "Reprovado")
-};
+
+
+var vlr_final = vlr_compra - vlr_desconto;
+
+console.log("O valor da compra foi de: ", vlr_compra);
+console.log("O Percentual de Desconto foi de: ", percentual_desconto,"%");
+console.log("Valor Final R$: ", vlr_final);
